@@ -10,8 +10,10 @@ import MusicPlayer from "./MusicPlayer";
 import Loader from "./Loader";
 import Error from "./Error";
 import NavLinks from "./NavLinks";
+import AppRouter from "./AppRouter";
 
 export {
+  AppRouter,
   TopPlay,
   Sidebar,
   SongCard,

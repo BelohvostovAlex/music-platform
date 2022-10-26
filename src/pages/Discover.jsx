@@ -17,17 +17,17 @@ const Discover = () => {
     error: songsByGenreError,
   } = useGetSongsByGenreQuery(genreListId || "POP");
 
-  const { title: genre } = genres.find((item) => item.value === genreListId);
-
   if (isFetchingSongsByGenre) return <Loader title="Tracks are loading" />;
 
   if (songsByGenreError) return <Error />;
+
+  const genre = genres.find((item) => item.value === genreListId)?.title;
 
   return (
     <div className="flex flex-col">
       <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
         <h2 className="font-bold text-3xl text-white text-left">
-          Discover {genre}
+          Discover {genre || "Pop"}
         </h2>
         <select
           onChange={(e) => selectGenreListId(e.target.value)}
